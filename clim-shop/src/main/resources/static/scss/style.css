@@ -373,10 +373,8 @@ body main .payment .summary button {
   font-size: 1.2rem;
 }
 body main .payment .summary .pay-mode img {
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   margin: 5px;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
