@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum EtatClim {
-    Archiver(0),
+    Indisponible(0),
     Correct(1),
     Bon(2),
     Excellent(3),
