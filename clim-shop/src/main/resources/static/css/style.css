@@ -378,5 +378,22 @@ body main .payment .summary .pay-mode img {
   border-radius: 10px;
   margin: 5px;
 }
+body #img-details {
+  height: 200px;
+  width: auto;
+}
+body #card-details #card-details-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+body #card-details p {
+  line-height: 1rem;
+  font-weight: 300;
+}
+body #card-details p span {
+  color: rgb(1, 241, 1);
+  font-weight: 600;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -4,8 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details du produit</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
 </head>
 <body>
-    <h1>Page des details d'un produit</h1>
+    <div class="navbar">
+        <div class="nav-item">
+            <h1>Clim <span>Shop</span></h1>
+        </div>
+        <div class="nav-item">
+            <input type="text">
+            <button type="submit">Rechercher</button>
+        </div>
+        <div class="nav-item">
+            <a href="../home.html">
+                <img src="../../static/img/accueil.png" alt="acceuil" class="icon">
+            </a>
+            <a href="#">
+                <img src="../../static/img/panier-dachat-rapide (1).png" alt="panier" class="icon">
+            </a>
+            <a href="#">
+                <img src="../../static/img/utilisateur.png" alt="utilisateur" class="icon">
+            </a>
+        </div>
+    </div>
+    <main>
+        <aside class="cart">
+            <div class="banner">
+                <h2>Details du produit</h2>
+            </div>
+            <div class="cart-content">
+                <div class="li">
+                    <div class="card">
+                        <img id="img-details" src="../../static/img/images (1).jpg" alt="">
+                        <div id="card-details">
+                            <p id="card-details-title"> <strong>Climatiseur LG Smart 1.5</strong></p>
+                            <p>Categorie : <span>Fixe</span></p>
+                            <p>Prix : 150000 <span>FCFA</span></p>
+                            <p>Surface de refroidissement : 6,5<span>M²</span></p>
+                            <p>Capacité de refroidissement : 12000 <span>BTU/H</span></p>
+                            <p>Marque : <span>LG</span></p>
+                            <p>Etat : <span>bon</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside class="payment">
+            <div class="summary">
+                <h2>Résumé du produit</h2>
+                <div class="total">
+                    <p>Total :</p>
+                    <p> 300000 <span>FCFA</span></p>
+                </div>
+                <button>Ajouter au panier</button>
+            </div>
+        </aside>
+    </main>
 </body>
 </html>
