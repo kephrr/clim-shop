@@ -58,7 +58,7 @@ body .navbar .nav-item .icon {
 body .navbar .nav-item .icon:hover {
   cursor: pointer;
 }
-body .big-title {
+body .template-content .big-title {
   display: flex;
   justify-content: center;
   height: 40vh;
@@ -70,49 +70,49 @@ body .big-title {
   text-align: center;
   overflow: hidden;
 }
-body .big-title .contain {
+body .template-content .big-title .contain {
   width: 50vw;
 }
-body .big-title .contain p {
+body .template-content .big-title .contain p {
   font-weight: bolder;
   font-size: 36px;
 }
-body .big-title .contain .sub-title {
+body .template-content .big-title .contain .sub-title {
   font-weight: normal;
   font-size: 14px;
 }
-body .section {
+body .template-content .section {
   display: flex;
   justify-content: center;
   padding: 20px 0;
 }
-body .section .call-to-action {
+body .template-content .section .call-to-action {
   display: flex;
   justify-content: space-between;
   width: 80vw;
 }
-body .section .call-to-action .item {
+body .template-content .section .call-to-action .item {
   display: flex;
   width: 25vw;
 }
-body .section .call-to-action .item img {
+body .template-content .section .call-to-action .item img {
   height: 80px;
 }
-body .section .call-to-action .item .item-text {
+body .template-content .section .call-to-action .item .item-text {
   display: flex;
   flex-direction: column;
   line-height: 0;
 }
-body .section .call-to-action .item .item-text .call-title {
+body .template-content .section .call-to-action .item .item-text .call-title {
   font-weight: bolder;
   font-size: 22px;
 }
-body .section .call-to-action .separate-bar {
+body .template-content .section .call-to-action .separate-bar {
   width: 1px;
   height: 100px;
   background-color: #1E1E1E;
 }
-body .separator {
+body .template-content .separator {
   width: 25vw;
   color: #FFFFFF;
   background-color: #000000;
@@ -120,17 +120,17 @@ body .separator {
   font-weight: 500;
   line-height: 0;
 }
-body .separator p {
+body .template-content .separator p {
   margin-left: 15px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
-body .filter-section {
+body .template-content .filter-section {
   display: flex;
   justify-content: space-between;
   margin: 20px;
 }
-body .filter-section form {
+body .template-content .filter-section form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -139,44 +139,44 @@ body .filter-section form {
   width: 40vw;
   font-size: 1.2rem;
 }
-body .filter-section form div {
+body .template-content .filter-section form div {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
-body .filter-section form div input, body .filter-section form div select {
+body .template-content .filter-section form div input, body .template-content .filter-section form div select {
   padding: 5px;
   border: solid 1px #1E1E1E;
 }
-body .filter-section form div label span {
+body .template-content .filter-section form div label span {
   color: #FF0606;
   font-size: 0.8rem;
 }
-body .filter-section form button {
+body .template-content .filter-section form button {
   padding: 10px 35px;
   background-color: #1E1E1E;
   color: #FFFFFF;
   border: none;
 }
-body .filter-section .search-results {
+body .template-content .filter-section .search-results {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 60vw;
 }
-body .filter-section .search-results h2 {
+body .template-content .filter-section .search-results h2 {
   line-height: 0;
 }
-body .filter-section .search-results .clim-list {
+body .template-content .filter-section .search-results .clim-list {
   border-radius: 10px;
 }
-body .clim-list {
+body .template-content .clim-list {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   padding: 10px;
 }
-body .clim-list .clim-item {
+body .template-content .clim-list .clim-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -188,41 +188,41 @@ body .clim-list .clim-item {
   line-height: 0.75rem;
   margin-right: 10px;
 }
-body .clim-list .clim-item img {
+body .template-content .clim-list .clim-item img {
   height: 6rem;
   width: 6rem;
 }
-body .clim-list .clim-item div p {
+body .template-content .clim-list .clim-item div p {
   font-weight: 600;
 }
-body .clim-list .clim-item div p span {
+body .template-content .clim-list .clim-item div p span {
   color: #FF0606;
 }
-body .clim-list .clim-item div .clim-lib {
+body .template-content .clim-list .clim-item div .clim-lib {
   color: #055AFE;
 }
-body .clim-list .clim-item .actions {
+body .template-content .clim-list .clim-item .actions {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-body .clim-list .clim-item .actions button {
+body .template-content .clim-list .clim-item .actions button {
   padding: 0px 15px;
   height: 40px;
   border: none;
   font-weight: 600;
 }
-body .clim-list .clim-item .actions .details {
+body .template-content .clim-list .clim-item .actions .details {
   text-transform: uppercase;
   font-weight: 800;
   color: #2E2D2D;
 }
-body .clim-list .clim-item .actions .plus {
+body .template-content .clim-list .clim-item .actions .plus {
   font-size: 24px;
   background-color: #57C4E7;
   color: #FFFFFF;
 }
-body .list-alone {
+body .template-content .list-alone {
   padding: 20px;
   margin: 10px 50px;
 }

@@ -24,5 +24,4 @@ public class Clim extends AbstractEntity{
     @ManyToOne
     private Categorie categorie;
 
-
 }
