@@ -3,7 +3,6 @@ package soft_afric.clim.shop.clim_shop.data.fixtures;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
 import soft_afric.clim.shop.clim_shop.data.entities.Marque;
@@ -40,6 +39,8 @@ public class ClimFixtures implements CommandLineRunner {
                                 .surface(1000.0+i*100.0)
                                 .etat(i%2==0?EtatClim.Correct:i%3==0?EtatClim.Bon:EtatClim.Excellent)
                                 .prix(200000+i*10000)
+                                .promotion(i%3==0?20:i%2==0?0:10)
+                                .image(i%2==0?"/img/images (1).jpg":"/img/1-11.png")
                                 .build()
                 );
             }

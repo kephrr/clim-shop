@@ -3,29 +3,82 @@ package soft_afric.clim.shop.clim_shop.web.controllers.Impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
+import soft_afric.clim.shop.clim_shop.data.entities.Marque;
+import soft_afric.clim.shop.clim_shop.services.CategorieService;
 import soft_afric.clim.shop.clim_shop.services.ClimService;
+import soft_afric.clim.shop.clim_shop.services.MarqueService;
 import soft_afric.clim.shop.clim_shop.web.controllers.ClimController;
-import soft_afric.clim.shop.clim_shop.web.dto.ClimDto;
+import soft_afric.clim.shop.clim_shop.web.dto.request.FilterDto;
+import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.CategorieDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.ClimDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.MarqueDto;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class ClimControllerImpl implements ClimController {
     private final ClimService climService;
+    private final CategorieService categorieService;
+    private final MarqueService marqueService;
     @Override
     public String homePage(Model model) {
-        model.addAttribute("clims", climService.findAll().stream().map(ClimDto::toCardDto));
-        return "home";
+        List<ClimDto> allClims = climService.findAll().stream().map(ClimDto::toCardDto).toList();
+        firstPageData(model, allClims);
+        model.addAttribute("filter", new FilterDto());
+        setSearchBarDto(model);
+        return "public/home";
     }
 
     @Override
-    public String homePage(Model model, Long id) {
+    public String detailsPage(Model model, Long id) {
         Clim clim = climService.show(id).orElse(null);
         if(clim==null){
             return "redirect:home";
         }
         ClimDto climDetails = ClimDto.toDetailsDto(clim);
         model.addAttribute("climDetails", climDetails);
+        setSearchBarDto(model);
         return "public/clim-details";
+    }
+
+    @Override
+    public String homeFilterClims(Model model, FilterDto filterDto) {
+        Categorie categorie = categorieService.show(filterDto.getCategorieID()).orElse(null);
+        Marque marque = marqueService.show(filterDto.getMarqueID()).orElse(null);
+        List<ClimDto> allClims = climService
+                .findAllByCategorieAndMarqueAndBudget(categorie, marque, filterDto.getBudget())
+                .stream().map(ClimDto::toCardDto).toList();
+        model.addAttribute("filter", filterDto);
+        firstPageData(model, allClims);
+        setSearchBarDto(model);
+        return "public/home";
+    }
+
+    @Override
+    public String homeFilterClims(Model model, RechercheDto rechercheDto) {
+        List<ClimDto> allClims = climService.findAllBySearchedKEyword(rechercheDto.getKeyword()).stream().map(ClimDto::toCardDto).toList();
+
+        model.addAttribute("filter", new FilterDto());
+        firstPageData(model, allClims);
+        model.addAttribute("search", rechercheDto);
+        return "public/home";
+    }
+
+    public void firstPageData(Model model, List<ClimDto> allClims) {
+        List<ClimDto> promotedClims = climService.findAllPromotedClims().stream().map(ClimDto::toCardDto).toList();
+        List<CategorieDto> categories = categorieService.findAll().stream().map(CategorieDto::toDto).toList();
+        List<MarqueDto> marques = marqueService.findAll().stream().map(MarqueDto::toDto).toList();
+
+        model.addAttribute("marques", marques);
+        model.addAttribute("categories", categories);
+        model.addAttribute("climsPromoted", promotedClims);
+        model.addAttribute("clims", allClims);
+    }
+    public void setSearchBarDto(Model model){
+        model.addAttribute("search", new RechercheDto());
     }
 }

@@ -18,6 +18,8 @@ public class Clim extends AbstractEntity{
     private String image;
     private int capacite;
     private Double surface;
+    @Column(length = 3)
+    private int promotion;
     private EtatClim etat;
     @ManyToOne
     private Marque marque;

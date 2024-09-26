@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 >
 <head>
     <meta charset="UTF-8">
@@ -14,12 +14,16 @@
         <div class="nav-item">
             <h1>Clim <span>Shop</span></h1>
         </div>
-        <div class="nav-item">
-            <input type="text">
+        <form class="nav-item"
+              th:method="post"
+              th:action="@{/home/search}"
+              th:object="${search}"
+        >
+            <input th:field="*{keyword}" type="text">
             <button type="submit">Rechercher</button>
-        </div>
+        </form>
         <div class="nav-item">
-            <a href="#">
+            <a th:href="@{/home}">
                 <img th:src="@{/img/accueil.png}" alt="acceuil" class="icon">
             </a>
             <a href="./public/shopping-cart.html">
@@ -30,9 +34,9 @@
             </a>
         </div>
     </div>
-    <div layout:fragment="content">
+    <section layout:fragment="contentForView" class="template-content">
+    </section>
 
-    </div>
     <footer>
         <div class="infos">
             <ul>
