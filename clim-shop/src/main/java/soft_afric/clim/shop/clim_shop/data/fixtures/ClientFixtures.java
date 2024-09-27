@@ -10,7 +10,7 @@ import soft_afric.clim.shop.clim_shop.data.entities.Client;
 import soft_afric.clim.shop.clim_shop.data.repositories.ClientRepository;
 import soft_afric.clim.shop.clim_shop.security.services.SecurityService;
 
-@Component
+//@Component
 @Order(5)
 @RequiredArgsConstructor
 public class ClientFixtures implements CommandLineRunner {

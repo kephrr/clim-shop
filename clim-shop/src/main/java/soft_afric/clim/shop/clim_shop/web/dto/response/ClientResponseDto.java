@@ -32,8 +32,7 @@ public class ClientResponseDto {
               .adresse(new Adresse(this.quartier,this.ville,this.numVilla))
               .tel(this.tel)
               .commandes(null)
-              .build()
-            ;
+              .build();
      cl.setId(this.id);
      return  cl;
   }

@@ -2,7 +2,9 @@ package soft_afric.clim.shop.clim_shop.web.controllers;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import soft_afric.clim.shop.clim_shop.security.data.entities.AppUser;
 import soft_afric.clim.shop.clim_shop.web.dto.request.FilterDto;
+import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
 
 public interface ClimController {

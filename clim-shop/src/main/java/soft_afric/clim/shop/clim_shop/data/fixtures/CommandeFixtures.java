@@ -41,12 +41,11 @@ public class CommandeFixtures implements CommandLineRunner {
                 ligneCommande.setMontant(500*i+100);
                 ligneCommande.setPrix(500*i+100);
                 montant+=ligneCommande.getMontant();
-
                 ligneCommande.setClim(climRepository.getReferenceById((long)j));
                 ligneCommande.setCommande(commande);
-
                 liste.add(ligneCommande);
             }
+
             commande.setMontant(montant);
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();

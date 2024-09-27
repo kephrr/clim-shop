@@ -19,6 +19,7 @@
                             <p id="card-details-title"> <strong th:text="${climDetails.libelle}"> </strong></p>
                             <p>Categorie : <span th:text="${climDetails.categorie}"></span></p>
                             <p th:text="'Prix : '+${climDetails.prix}"> <span>FCFA</span></p>
+                            <p th:text="'Prix (promotion incluse) : '+${climDetails.prixFinal}"> <span>FCFA</span></p>
                             <p th:text="'Surface de refroidissement : '+${climDetails.surface}"><span>M²</span></p>
                             <p th:text="'Capacité de refroidissement : '+${climDetails.capacite}"> <span>BTU/H</span></p>
                             <p >Marque : <span th:text="${climDetails.marque}">LG</span></p>
@@ -28,20 +29,31 @@
                 </div>
             </div>
         </aside>
-        <form class="payment" th:action="@{/client/add-panier}" method="post">
+        <form class="payment"
+              th:method="post"
+              th:action="@{/client/panier}"
+              th:object="${climPanierDto}">
             <div class="summary">
                 <h2>Résumé du produit</h2>
-                <div class="total">
-                    <p>Promotion : </p>
-                    <p><span th:text="' '+${climDetails.promotion}"></span></p>
-                </div>
-                <div class="total">
-                    <p>Prix final : </p>
-                    <p th:text="' '+${climDetails.prixFinal}">  <span>FCFA</span></p>
-                </div>
+                <label for="libelle" >Libelle </label>
+                <input readonly="readonly" th:field="*{libelle}" th:value="${climDetails.libelle}" type="text" id="libelle">
+
+                <label for="prix">Prix </label>
+                <input readonly="readonly" th:field="*{prix}" value="" type="text" name="prix" id="prix">
+
+                <label for="quantite">Quantité</label>
+                <input required onchange="calcMontant()" th:field="*{quantite}" type="number" name="quantite" id="quantite">
+
+                <label for="montant">Montant total </label>
+                <input readonly="readonly" th:field="*{montant}" type="text" name="montant" id="montant">
+
                 <button type="submit">Ajouter au panier</button>
-            </div>
+            </div >
         </form>
     </main>
 </div>
+<script>
+
+    calcMontant();
+</script>
 </html>

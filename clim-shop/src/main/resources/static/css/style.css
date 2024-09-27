@@ -352,7 +352,49 @@ body main .cart .cart-content .li .card .card-content .card-actions a {
 }
 body main .payment {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+body main .payment .summary {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #D9D9D9;
+  background-color: #FFFFFF;
+  padding: 10px 10px;
+  line-height: 0.5rem;
+}
+body main .payment .summary input {
+  font-size: 1.1rem;
+  width: 25vw;
+  height: 5vh;
+  padding: .3rem 0;
+  margin: .2rem 0 10px;
+  border: solid 3px rgba(184,229,245,0.78);
+  background-color: rgba(184,229,245,0.28);
+  color: #1E1E1E;
+}
+body main .payment .summary input:focus{
+  border: solid 3px #055AFE;
+  outline: none;
+}
+#montant:hover, #prix:hover, #libelle:hover{
+  cursor: not-allowed;
+}
+body main .payment .summary label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+body main .payment .summary button {
+  width: 25vw;
+  padding: 1rem;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  font-size: 1.2rem;
+}
+
 body main .payment .summary {
   display: flex;
   flex-direction: column;
@@ -371,18 +413,11 @@ body main .payment .summary div p {
 body main .payment .summary div p span {
   color: #FF0606;
 }
-body main .payment .summary button {
-  padding: 15px;
-  background-color: #000000;
-  color: #FFFFFF;
-  border: none;
-  font-size: 1.2rem;
-}
 body main .payment .summary .pay-mode img {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  margin: 5px;
+  margin: 10px;
 }
 body #img-details {
   height: 200px;

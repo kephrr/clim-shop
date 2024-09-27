@@ -14,6 +14,7 @@ public class PanierRequestDto {
     private List<ClimPanierDto> articles;
     private Double total = 0.0;
     private ClientResponseDto client;
+    private int nbre=0;
     public void addClimToPanier(ClimPanierDto article){
         int pos = articles.indexOf(article);
         if(pos != -1){

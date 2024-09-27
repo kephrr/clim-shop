@@ -3,7 +3,9 @@ package soft_afric.clim.shop.clim_shop.web.controllers.Impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
 import soft_afric.clim.shop.clim_shop.data.entities.Marque;
@@ -11,17 +13,23 @@ import soft_afric.clim.shop.clim_shop.services.CategorieService;
 import soft_afric.clim.shop.clim_shop.services.ClimService;
 import soft_afric.clim.shop.clim_shop.services.MarqueService;
 import soft_afric.clim.shop.clim_shop.web.controllers.ClimController;
+import soft_afric.clim.shop.clim_shop.web.dto.request.ClimPanierDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.FilterDto;
+import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.CategorieDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.ClientResponseDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.ClimDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.MarqueDto;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/client")
+@SessionAttributes({"panier"})
 public class ClimControllerImpl implements ClimController {
     private final ClimService climService;
     private final CategorieService categorieService;
@@ -36,12 +44,15 @@ public class ClimControllerImpl implements ClimController {
     }
 
     @Override
-    public String detailsPage(Model model, Long id) {
+    public String detailsPage(Model model,
+                              Long id) {
         Clim clim = climService.show(id).orElse(null);
         if(clim==null){
             return "redirect:home";
         }
         ClimDto climDetails = ClimDto.toDetailsDto(clim);
+        ClimPanierDto climPanierDto = ClimPanierDto.toDto(climDetails);
+        model.addAttribute("climPanierDto", climPanierDto);
         model.addAttribute("climDetails", climDetails);
         setSearchBarDto(model);
         return "client/clim-details";
@@ -82,5 +93,14 @@ public class ClimControllerImpl implements ClimController {
     }
     public void setSearchBarDto(Model model){
         model.addAttribute("search", new RechercheDto());
+    }
+    @ModelAttribute("panier")
+    public PanierRequestDto panier(){
+        return  new PanierRequestDto(
+                new ArrayList<>(),
+                0.0,
+                new ClientResponseDto(),
+                0
+        );//est ce que ici on aurai pas just pu faire un buil?;
     }
 }

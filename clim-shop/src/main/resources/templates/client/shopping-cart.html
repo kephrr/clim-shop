@@ -4,99 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier</title>
-    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div class="navbar">
-        <div class="nav-item">
-            <h1>Clim <span>Shop</span></h1>
-        </div>
-        <div class="nav-item">
-            <input type="text">
-            <button type="submit">Rechercher</button>
-        </div>
-        <div class="nav-item">
-            <a href="home.html">
-                <img src="../../static/img/accueil.png" alt="acceuil" class="icon">
-            </a>
-            <a href="#">
-                <img src="../../static/img/panier-dachat-rapide (1).png" alt="panier" class="icon">
-            </a>
-            <a href="#">
-                <img src="../../static/img/utilisateur.png" alt="utilisateur" class="icon">
-            </a>
-        </div>
-    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+>
+<div layout:fragment="contentForView" class="template-content">
     <main>
         <aside class="cart">
             <div class="banner">
                 <input type="radio" name="all">
-                <h2>Tout sélectionner (2)</h2>
+                <h2 th:text="'Tout sélectionner ('+${panier.nbre}+')'"></h2>
             </div>
             <div class="cart-content">
-                <div class="li">
+                <div class="li" th:each="clim:${clims}">
                     <input type="radio" name="">
                     <div class="card">
-                        <img src="../../static/img/images (1).jpg" alt="">
+                        <img th:text="${clim.libelle}" th:src="@{img/images (1).jpg}" alt="">
                         <div class="card-content">
-                            <p class="card-content-title">Climatiseur LG Smart 1.5</p>
-                            <p>150000 <span>FCFA</span></p>
+                            <p class="card-content-title" th:text="${clim.quantite}+'x '+${clim.libelle}"></p>
+                            <p th:text="'Montant : '+${clim.montant}"><span>FCFA</span></p>
                             <div class="card-actions">
-                                <input type="number" name="" placeholder="Qte">
                                 <a href="">Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="li">
-                    <input type="radio" name="" >
-                    <div class="card">
-                        <img src="../../static/img/images (1).jpg" alt="">
-                        <div class="card-content">
-                            <p class="card-content-title">Climatiseur LG Smart 1.5</p>
-                            <p>150000 <span>FCFA</span></p>
-                            <div class="card-actions">
-                                <input type="number" name="" placeholder="Qte">
-                                <a href="">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-            
-                <div class="li">
-                    <input type="radio" name="" >
-                    <div class="card">
-                        <img src="../../static/img/images (1).jpg" alt="">
-                        <div class="card-content">
-                            <p class="card-content-title">Climatiseur LG Smart 1.5</p>
-                            <p>150000 <span>FCFA</span></p>
-                            <div class="card-actions">
-                                <input type="number" name="" placeholder="Qte">
-                                <a href="">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
-
             </div>
         </aside>
         <aside class="payment">
             <div class="summary">
                 <h2>Résumé de la commande</h2>
-                <div class="total">
-                    <p>Total :</p>
-                    <p> 300000 <span>FCFA</span></p>
+                <div class="cmd-item">
+                    <p>Client :</p>
+                    <p>Kephren NZE</p>
+                </div>
+                <div class="cmd-item">
+                    <p>Telephone :</p>
+                    <p>78 477 66 87</p>
+                </div>
+                <div class="cmd-item">
+                    <p>Adresse :</p>
+                    <p>Dakar Sicap Baobab Villa 789</p>
+                </div>
+                <div class="cmd-item">
+                    <p>Montant à payer :</p>
+                    <p th:text="${panier.total}"> 300000 <span>FCFA</span></p>
                 </div>
                 <h3>Nous acceptons</h3>
                 <div class="pay-mode">
-                    <img src="../../static/img/paiement-par-carte-de-credit.png" alt="">
-                    <img src="../../static/img/orange-money.jpg" alt="">
-                    <img src="../../static/img/wave.png" alt="">
+                    <img th:src="@{/img/paiement-par-carte-de-credit.png}" alt="">
+                    <img th:src="@{/img/orange-money.jpg}" alt="">
+                    <img th:src="@{/img/wave.png}" alt="">
                 </div>
                 <button>Commander</button>
             </div>
         </aside>
     </main>
-</body>
+</div>
 </html>
