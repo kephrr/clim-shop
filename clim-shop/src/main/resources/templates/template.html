@@ -16,17 +16,17 @@
         </div>
         <form class="nav-item"
               th:method="post"
-              th:action="@{/home/search}"
+              th:action="@{/client/home/search}"
               th:object="${search}"
         >
             <input th:field="*{keyword}" type="text">
             <button type="submit">Rechercher</button>
         </form>
         <div class="nav-item">
-            <a th:href="@{/home}">
+            <a th:href="@{/client/home}">
                 <img th:src="@{/img/accueil.png}" alt="acceuil" class="icon">
             </a>
-            <a href="./public/shopping-cart.html">
+            <a href="client/shopping-cart.html">
                 <img th:src="@{/img/panier-dachat-rapide (1).png}" alt="panier" class="icon">
             </a>
             <a href="#">

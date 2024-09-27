@@ -1,9 +1,8 @@
 package soft_afric.clim.shop.clim_shop.data.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import soft_afric.clim.shop.clim_shop.data.enums.EtatCommande;
 import soft_afric.clim.shop.clim_shop.data.enums.ModePaiement;
 
@@ -18,9 +17,18 @@ import java.util.List;
 @Builder
 @Table(name="commande")
 public class Commande extends AbstractEntity{
-    private Date date;
     private ModePaiement modePaiement;
+    @Enumerated(value = EnumType.STRING)
     private EtatCommande etatCommande;
+
+    @Embedded
+    private Adresse adresse;
+    @ManyToOne
+    Client client;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dateCommmande;
+    private  int montant;
     @OneToMany(mappedBy = "commande")
-    List<LigneCommande> lignes;
+    private List<LigneCommande> ligneCommandes;
 }

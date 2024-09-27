@@ -15,7 +15,7 @@ body {
 }
 body .navbar {
   background-color: #57C4E7;
-  height: 10.5vh;
+  height: 9.5vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -52,7 +52,7 @@ body .navbar .nav-item button:hover {
   cursor: pointer;
 }
 body .navbar .nav-item .icon {
-  height: 32px;
+  height: 26px;
   margin: 0 5px;
 }
 body .navbar .nav-item .icon:hover {

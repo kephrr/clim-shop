@@ -6,9 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum EtatCommande {
-    EnCours(0),
-    Valide(1),
-    Invalide(2),
-    Livree(3);
+    Encour(0),
+    Terminer(1),
+    Facturer(2),
+    Payer(3);
     private final Integer index;
 }

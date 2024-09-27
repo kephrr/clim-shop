@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="actions">
-                            <a th:href="@{/details/{id}(id = ${clim.id})}">
+                            <a th:href="@{/client/details/{id}(id = ${clim.id})}">
                                 <button class="details">Details</button>
                             </a>
                             <button class="plus">+</button>
@@ -114,39 +114,12 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <a th:href="@{/details/{id}(id = ${clim.id})}">
+                        <a th:href="@{/client/details/{id}(id = ${clim.id})}">
                             <button class="details">Details</button>
                         </a>
                         <button class="plus">+</button>
                     </div>
                 </div>
         </div>
-        <!---
-                <div class="separator">
-                    <div class="separtor-item">
-                        <p class="text">Populaires</p>
-                    </div>
-                </div>
-
-                <div class="clim-list list-alone">
-                    <div th:each="clim:${clims}" class="clim-item">
-                        <img th:src="@{${clim.image}}" alt="clim">
-                        <div>
-                            <p th:text="${clim.libelle}" class="clim-lib"></p>
-                            <p th:text="${clim.marque}"></p>
-                            <div class="price">
-                                <p th:text="${clim.prix}+' FCFA '"></p>
-                                <span th:text="${clim.promotion}"></span>
-                            </div>
-                        </div>
-                        <div class="actions">
-                            <a th:href="@{/details/{id}(id = ${clim.id})}">
-                                <button class="details">Details</button>
-                            </a>
-                            <button class="plus">+</button>
-                        </div>
-                    </div>
-                </div>
-                --->
     </div>
 </html>

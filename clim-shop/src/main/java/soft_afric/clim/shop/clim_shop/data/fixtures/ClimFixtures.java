@@ -3,6 +3,7 @@ package soft_afric.clim.shop.clim_shop.data.fixtures;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
 import soft_afric.clim.shop.clim_shop.data.entities.Marque;
@@ -11,7 +12,7 @@ import soft_afric.clim.shop.clim_shop.data.repositories.CategorieRepository;
 import soft_afric.clim.shop.clim_shop.data.repositories.ClimRepository;
 import soft_afric.clim.shop.clim_shop.data.repositories.MarqueRepository;
 
-//@Component
+@Component
 @Order(0)
 @RequiredArgsConstructor
 public class ClimFixtures implements CommandLineRunner {

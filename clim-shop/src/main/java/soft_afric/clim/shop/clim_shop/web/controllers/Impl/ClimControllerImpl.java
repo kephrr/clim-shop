@@ -3,6 +3,7 @@ package soft_afric.clim.shop.clim_shop.web.controllers.Impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
 import soft_afric.clim.shop.clim_shop.data.entities.Marque;
@@ -20,6 +21,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/client")
 public class ClimControllerImpl implements ClimController {
     private final ClimService climService;
     private final CategorieService categorieService;
@@ -30,7 +32,7 @@ public class ClimControllerImpl implements ClimController {
         firstPageData(model, allClims);
         model.addAttribute("filter", new FilterDto());
         setSearchBarDto(model);
-        return "public/home";
+        return "client/home";
     }
 
     @Override
@@ -42,7 +44,7 @@ public class ClimControllerImpl implements ClimController {
         ClimDto climDetails = ClimDto.toDetailsDto(clim);
         model.addAttribute("climDetails", climDetails);
         setSearchBarDto(model);
-        return "public/clim-details";
+        return "client/clim-details";
     }
 
     @Override
@@ -55,7 +57,7 @@ public class ClimControllerImpl implements ClimController {
         model.addAttribute("filter", filterDto);
         firstPageData(model, allClims);
         setSearchBarDto(model);
-        return "public/home";
+        return "client/home";
     }
 
     @Override
@@ -65,7 +67,7 @@ public class ClimControllerImpl implements ClimController {
         model.addAttribute("filter", new FilterDto());
         firstPageData(model, allClims);
         model.addAttribute("search", rechercheDto);
-        return "public/home";
+        return "client/home";
     }
 
     public void firstPageData(Model model, List<ClimDto> allClims) {

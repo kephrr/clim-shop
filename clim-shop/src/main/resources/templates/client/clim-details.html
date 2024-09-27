@@ -28,7 +28,7 @@
                 </div>
             </div>
         </aside>
-        <aside class="payment">
+        <form class="payment" th:action="@{/client/add-panier}" method="post">
             <div class="summary">
                 <h2>Résumé du produit</h2>
                 <div class="total">
@@ -39,9 +39,9 @@
                     <p>Prix final : </p>
                     <p th:text="' '+${climDetails.prixFinal}">  <span>FCFA</span></p>
                 </div>
-                <button>Ajouter au panier</button>
+                <button type="submit">Ajouter au panier</button>
             </div>
-        </aside>
+        </form>
     </main>
 </div>
 </html>

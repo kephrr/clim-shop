@@ -17,6 +17,7 @@ public class Clim extends AbstractEntity{
     private int prix;
     private String image;
     private int capacite;
+    private int qteStock;
     private Double surface;
     @Column(length = 3)
     private int promotion;

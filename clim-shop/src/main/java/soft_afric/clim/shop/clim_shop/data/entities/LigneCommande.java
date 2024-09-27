@@ -16,6 +16,7 @@ import lombok.*;
 public class LigneCommande extends AbstractEntity{
     private int quantite;
     private int montant;
+    private int prix;
     @ManyToOne
     private Clim clim;
     @ManyToOne
