@@ -50,9 +50,6 @@ public class SecurityServiceImpl implements SecurityService, UserDetailsService 
         if(role==null) throw  new RuntimeException("Ce role n'existe pas");
         user.getRoles().add(role);
         appUserRepository.save(user);
-
-
-
     }
 
     @Override

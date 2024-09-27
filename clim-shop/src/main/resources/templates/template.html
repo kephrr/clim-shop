@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clim SHOP</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/details.js}"></script>
 </head>
 <body>
-
     <div class="navbar">
         <div class="nav-item">
             <h1>Clim <span>Shop</span></h1>
@@ -26,7 +26,7 @@
             <a th:href="@{/client/home}">
                 <img th:src="@{/img/accueil.png}" alt="acceuil" class="icon">
             </a>
-            <a href="client/shopping-cart.html">
+            <a th:href="@{/client/panier}">
                 <img th:src="@{/img/panier-dachat-rapide (1).png}" alt="panier" class="icon">
             </a>
             <a href="#">
@@ -64,19 +64,19 @@
             </ul>
             <div class="socials">
                 <a href="">
-                    <img src="../static/img/tiktok-logo-icon-social-media-icon-free-png.png" alt="tiktok">
+                    <img th:src="@{/img/tiktok-logo-icon-social-media-icon-free-png.png}" alt="tiktok">
                 </a>
                 <a href="">
-                    <img src="../static/img/Instagram_icon.png" alt="insta">
+                    <img th:src="@{/img/Instagram_icon.png}" alt="insta">
                 </a>
                 <a href="">
-                    <img src="../static/img/Youtube_logo.png" alt="youtube">
+                    <img th:src="@{/img/Youtube_logo.png}" alt="youtube">
                 </a>
                 <a href="">
-                    <img src="../static/img/Facebook_Logo_2023.png" alt="facebook">
+                    <img th:src="@{/img/Facebook_Logo_2023.png}" alt="facebook">
                 </a>
                 <a href="">
-                    <img src="../static/img/LinkedIn_logo_initials.png" alt="linkedin">
+                    <img th:src="@{/img/LinkedIn_logo_initials.png}" alt="linkedin">
                 </a>
             </div>
         </div>
