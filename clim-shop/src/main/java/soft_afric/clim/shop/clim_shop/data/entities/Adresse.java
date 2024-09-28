@@ -17,6 +17,6 @@ public class Adresse {
     private String numVilla;
     @Override
     public String  toString(){
-        return quartier+ " | "+ ville +" | "+ " |numVilla";
+        return quartier+ " | "+ ville +" | "+numVilla;
     }
 }

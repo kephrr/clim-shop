@@ -10,7 +10,7 @@
             <div class="banner">
                 <h2>Details du produit</h2>
             </div>
-            <div class="cart-content">
+            <div class="cart-content" id="product-cart">
                 <div class="li">
                     <div class="card">
                         <img id="img-details"
@@ -31,7 +31,7 @@
         </aside>
         <form class="payment"
               th:method="post"
-              th:action="@{/client/panier}"
+              th:action="@{/client/panier/add}"
               th:object="${climPanierDto}">
             <div class="summary">
                 <h2>Résumé du produit</h2>
@@ -46,14 +46,18 @@
 
                 <label for="montant">Montant total </label>
                 <input readonly="readonly" th:field="*{montant}" type="text" name="montant" id="montant">
-
+                <input th:field="*{id}" th:value="${climDetails.id}" type="text" id="id">
+                <style>
+                    #id{
+                        display: none;
+                    }
+                </style>
                 <button type="submit">Ajouter au panier</button>
             </div >
         </form>
     </main>
 </div>
 <script>
-
     calcMontant();
 </script>
 </html>

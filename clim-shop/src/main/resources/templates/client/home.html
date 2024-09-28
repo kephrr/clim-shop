@@ -91,7 +91,9 @@
                             <a th:href="@{/client/details/{id}(id = ${clim.id})}">
                                 <button class="details">Details</button>
                             </a>
-                            <button class="plus">+</button>
+                            <a th:href="@{/client/panier/add/{id}(id = ${clim.id})}">
+                                <button class="plus">+</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +119,9 @@
                         <a th:href="@{/client/details/{id}(id = ${clim.id})}">
                             <button class="details">Details</button>
                         </a>
-                        <button class="plus">+</button>
+                        <a th:href="@{/client/panier/add/{id}(id = ${clim.id})}">
+                            <button class="plus">+</button>
+                        </a>
                     </div>
                 </div>
         </div>

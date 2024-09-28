@@ -8,6 +8,7 @@ import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
 
 public interface ClimController {
+
     @GetMapping("/home")
     String homePage(Model model);
 

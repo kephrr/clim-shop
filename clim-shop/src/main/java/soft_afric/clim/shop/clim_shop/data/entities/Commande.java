@@ -20,9 +20,6 @@ public class Commande extends AbstractEntity{
     private ModePaiement modePaiement;
     @Enumerated(value = EnumType.STRING)
     private EtatCommande etatCommande;
-
-    @Embedded
-    private Adresse adresse;
     @ManyToOne
     Client client;
     @Temporal(TemporalType.DATE)
@@ -31,4 +28,8 @@ public class Commande extends AbstractEntity{
     private  int montant;
     @OneToMany(mappedBy = "commande")
     private List<LigneCommande> ligneCommandes;
+
+    public void addLigneCommande(LigneCommande ligneCommande) {
+        ligneCommandes.add(ligneCommande);
+    }
 }

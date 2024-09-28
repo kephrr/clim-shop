@@ -1,6 +1,8 @@
 package soft_afric.clim.shop.clim_shop.web.controllers.Impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +12,7 @@ import soft_afric.clim.shop.clim_shop.data.entities.Categorie;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
 import soft_afric.clim.shop.clim_shop.data.entities.Marque;
 import soft_afric.clim.shop.clim_shop.services.CategorieService;
+import soft_afric.clim.shop.clim_shop.services.ClientService;
 import soft_afric.clim.shop.clim_shop.services.ClimService;
 import soft_afric.clim.shop.clim_shop.services.MarqueService;
 import soft_afric.clim.shop.clim_shop.web.controllers.ClimController;
@@ -34,6 +37,9 @@ public class ClimControllerImpl implements ClimController {
     private final ClimService climService;
     private final CategorieService categorieService;
     private final MarqueService marqueService;
+    private final ClientService clientService;
+
+
     @Override
     public String homePage(Model model) {
         List<ClimDto> allClims = climService.findAll().stream().map(ClimDto::toCardDto).toList();
@@ -44,8 +50,7 @@ public class ClimControllerImpl implements ClimController {
     }
 
     @Override
-    public String detailsPage(Model model,
-                              Long id) {
+    public String detailsPage(Model model, Long id) {
         Clim clim = climService.show(id).orElse(null);
         if(clim==null){
             return "redirect:home";
@@ -94,13 +99,16 @@ public class ClimControllerImpl implements ClimController {
     public void setSearchBarDto(Model model){
         model.addAttribute("search", new RechercheDto());
     }
+
     @ModelAttribute("panier")
     public PanierRequestDto panier(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
         return  new PanierRequestDto(
                 new ArrayList<>(),
                 0.0,
-                new ClientResponseDto(),
+                ClientResponseDto.toDto(clientService.findByUsername(currentUserName)),
                 0
-        );//est ce que ici on aurai pas just pu faire un buil?;
+        );
     }
 }

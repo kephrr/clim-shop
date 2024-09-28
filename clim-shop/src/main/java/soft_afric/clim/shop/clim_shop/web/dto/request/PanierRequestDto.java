@@ -29,5 +29,22 @@ public class PanierRequestDto {
             articles.add(article);
             total+= article.getMontant();
         }
+        resetNbre();
+    }
+    public void removeClimFromPanier(Long id){
+        articles.removeIf(article -> article.getId().equals(id));
+        resetNbre();
+        resetTotal();
+    }
+    public void resetNbre(){
+        nbre=articles.size();
+    }
+
+    public void resetTotal(){
+        Double count = 0.0;
+        for (ClimPanierDto article : articles) {
+            count = count + article.getMontant();
+        }
+        total = count;
     }
 }

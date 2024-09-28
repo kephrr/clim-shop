@@ -6,7 +6,7 @@ button:hover {
 
 body {
   background-color: #f5f5f5;
-  font-size: 14px;
+  font-size: 13px;
   font-family: "Poppins", sans-serif;
   color: #000000;
   margin: -27px 0 0 0;
@@ -309,6 +309,9 @@ body main .cart .cart-content {
   height: 100%;
   overflow-y: scroll;
 }
+body main .cart #product-cart{
+  overflow-y:hidden;
+}
 body main .cart .cart-content .li {
   align-items: center;
   line-height: 0;
@@ -350,11 +353,16 @@ body main .cart .cart-content .li .card .card-content .card-actions a {
   color: #2E2D2D;
   text-decoration: none;
 }
+body main .cart .cart-content .li .card .card-content .card-actions #red {
+  background-color: #FF0606;
+  color: white;
+}
 body main .payment {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: height 200ms ease;
 }
 body main .payment .summary {
   display: flex;
@@ -366,7 +374,7 @@ body main .payment .summary {
 }
 body main .payment .summary input {
   font-size: 1.1rem;
-  width: 25vw;
+  width: 20vw;
   height: 5vh;
   padding: .3rem 0;
   margin: .2rem 0 10px;
@@ -387,7 +395,6 @@ body main .payment .summary label {
   margin: 20px 0 10px;
 }
 body main .payment .summary button {
-  width: 25vw;
   padding: 1rem;
   background-color: #000000;
   color: #FFFFFF;
@@ -395,15 +402,7 @@ body main .payment .summary button {
   font-size: 1.2rem;
 }
 
-body main .payment .summary {
-  display: flex;
-  flex-direction: column;
-  border: solid 1px #D9D9D9;
-  background-color: #FFFFFF;
-  width: 90%;
-  padding: 10px 10px;
-  line-height: 0.5rem;
-}
+
 body main .payment .summary div {
   display: flex;
 }

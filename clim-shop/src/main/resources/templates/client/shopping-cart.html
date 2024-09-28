@@ -19,39 +19,46 @@
     <main>
         <aside class="cart">
             <div class="banner">
-                <input type="radio" name="all">
+                <!--
+                <input onclick="selectAll()" type="button" name="all" id="all" value="X">
+                -->
                 <h2 th:text="'Tout sélectionner ('+${panier.nbre}+')'"></h2>
             </div>
             <div class="cart-content">
-                <div class="li" th:each="clim:${clims}">
-                    <input type="radio" name="">
+                <div class="li" th:each="ligne:${lignes}">
+                    <!--
+                    <input type="radio" name="" class="select">
+                    -->
                     <div class="card">
-                        <img th:text="${clim.libelle}" th:src="@{img/images (1).jpg}" alt="">
+                        <img th:src="@{${ligne.image}}" alt="image">
                         <div class="card-content">
-                            <p class="card-content-title" th:text="${clim.quantite}+'x '+${clim.libelle}"></p>
-                            <p th:text="'Montant : '+${clim.montant}"><span>FCFA</span></p>
+                            <p class="card-content-title" th:text="${ligne.quantite}+'x '+${ligne.libelle}"></p>
+                            <p th:text="'Montant : '+${ligne.montant}"><span>FCFA</span></p>
                             <div class="card-actions">
-                                <a href="">Details</a>
+                                <a th:href="@{/client/details/{id}(id = ${ligne.id})}">Details</a>
+                                <a th:href="@{/client/panier/remove/{id}(id = ${ligne.id})}" id="red" >Retirer</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </aside>
-        <aside class="payment">
+        <form class="payment"
+              th:action="@{/commander}"
+              th:method="post">
             <div class="summary">
                 <h2>Résumé de la commande</h2>
                 <div class="cmd-item">
                     <p>Client :</p>
-                    <p>Kephren NZE</p>
+                    <p th:text="' '+${panier.client.nomComplet}"></p>
                 </div>
                 <div class="cmd-item">
                     <p>Telephone :</p>
-                    <p>78 477 66 87</p>
+                    <p th:text="' '+${panier.client.tel}"></p>
                 </div>
                 <div class="cmd-item">
                     <p>Adresse :</p>
-                    <p>Dakar Sicap Baobab Villa 789</p>
+                    <p th:text="' '+${panier.client.adresse}"></p>
                 </div>
                 <div class="cmd-item">
                     <p>Montant à payer :</p>
@@ -65,7 +72,10 @@
                 </div>
                 <button>Commander</button>
             </div>
-        </aside>
+        </form>
     </main>
 </div>
+<script>
+    selectAll();
+</script>
 </html>

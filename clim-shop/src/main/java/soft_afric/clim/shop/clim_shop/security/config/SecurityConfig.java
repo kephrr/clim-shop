@@ -20,7 +20,6 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private  final PasswordEncoder passwordEncoder;
 
-
     //Authentification
     @Bean
     public AuthenticationProvider authenticationProvider(){
@@ -29,7 +28,6 @@ public class SecurityConfig {
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
         return  daoAuthenticationProvider;
     }
-
 
     //Autorisation
     @Bean

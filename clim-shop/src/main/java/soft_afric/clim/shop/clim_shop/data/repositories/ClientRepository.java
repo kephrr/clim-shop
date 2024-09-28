@@ -12,4 +12,5 @@ public interface ClientRepository extends JpaRepository<Client,Long> {
     List<Client> findByIsActived(Boolean active);
     Page<Client> findAllByIsActivedTrue(Pageable pageable);
     List<Client> findByIsActivedTrue();
+    Client findClientByNomCompletAndIsActivedTrue(String nomComplet);
 }

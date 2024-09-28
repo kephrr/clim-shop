@@ -31,7 +31,7 @@ public class CommandeFixtures implements CommandLineRunner {
             Commande commande = new Commande();
             commande.setEtatCommande(i%2==0? EtatCommande.Encour: EtatCommande.Terminer);
             commande.setClient(client);
-            commande.setAdresse(client.getAdresse());
+            //commande.setAdresse(client.getAdresse());
             int montant = 0;
             List<LigneCommande> liste = new ArrayList<>();
 

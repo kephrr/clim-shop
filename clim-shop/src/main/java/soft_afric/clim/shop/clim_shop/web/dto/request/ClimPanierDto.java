@@ -2,6 +2,7 @@ package soft_afric.clim.shop.clim_shop.web.dto.request;
 
 import lombok.*;
 import soft_afric.clim.shop.clim_shop.data.entities.Clim;
+import soft_afric.clim.shop.clim_shop.data.entities.LigneCommande;
 import soft_afric.clim.shop.clim_shop.web.dto.response.ClimDto;
 
 import java.util.Objects;
@@ -12,10 +13,11 @@ import java.util.Objects;
 @Getter
 @Setter
 public class ClimPanierDto {
-    private Long id;
+    private  Long id;
     private  String libelle;
+    private  String image;
     private  int montant = 0;
-    private  int quantite = 0;
+    private  int quantite;
     private  int prix;
 
     public  int calcQuantite(int qte){
@@ -38,12 +40,12 @@ public class ClimPanierDto {
     public int hashCode() {
         return Objects.hash(id);
     }
-
     public static ClimPanierDto toDto(ClimDto clim){
         return ClimPanierDto.builder()
                 .id(clim.getId())
                 .libelle(clim.getLibelle())
                 .prix(clim.getPrixFinal())
+                .image(clim.getImage())
                 .build();
     }
 }
