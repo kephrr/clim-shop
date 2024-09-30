@@ -33,10 +33,8 @@ public class ClientControllerImpl implements ClientController {
     public String modifyAccount(Model model, @ModelAttribute ClientRequestDto clientEditDto) {
         Client client = getConnectedUser();
         client.setAdresse(new Adresse(clientEditDto.getQuartier(), clientEditDto.getVille(), clientEditDto.getVilla()));
-
         client.setNomComplet(clientEditDto.getNomComplet());
         client.setTel(clientEditDto.getTel());
-        client.setPassword(clientEditDto.getPassword());
 
         clientService.save(client);
         setSearchBarDto(model);

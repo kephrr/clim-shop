@@ -31,23 +31,21 @@ public class SecurityConfig {
     //Autorisation
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-       return http.csrf(AbstractHttpConfigurer::disable) //csrf->csrf.disable()
-               .logout(logout -> logout
-                       .logoutUrl("/logout")
-                       .logoutSuccessUrl("/login?logout")
-                       .invalidateHttpSession(true)
-                       .deleteCookies("JSESSIONID")
-               )
-               .formLogin(form->form
-                       .loginPage("/login")
-                       .permitAll()
-               ).authorizeHttpRequests(auth->auth
-                       .requestMatchers( "/signup","/signup/**").permitAll()
-                       .requestMatchers("/logout").permitAll()
-                       .requestMatchers("/admin/**").hasAnyAuthority("Admin")
-                       .requestMatchers("/client/**").hasAnyAuthority("Client")
-                       .anyRequest().authenticated())
-
-               .build();
+        return http.csrf(AbstractHttpConfigurer::disable) //csrf->csrf.disable()
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+            )
+            .formLogin(form->form
+                .loginPage("/login")
+                .permitAll()
+            ).authorizeHttpRequests(auth->auth
+                .requestMatchers("/register/**", "/logout").permitAll()
+                .requestMatchers("/admin/**").hasAnyAuthority("Admin")
+                .requestMatchers("/client/**").hasAnyAuthority("Client")
+                .anyRequest().authenticated()
+            ).build();
     }
 }

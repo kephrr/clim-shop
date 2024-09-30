@@ -67,8 +67,9 @@ public class SecurityServiceImpl implements SecurityService, UserDetailsService 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser user = appUserRepository.findByLogin(username);
         if(user==null) throw new RuntimeException("L'utilisateur n'existe pas");
-        return new User(user.getLogin(),user.getPassword(),
-                user.getRoles().stream().map(role-> new SimpleGrantedAuthority(role.getRoleName())).toList()
-                );
+        return new User(
+                user.getLogin(),
+                user.getPassword(),
+                user.getRoles().stream().map(role-> new SimpleGrantedAuthority(role.getRoleName())).toList());
     }
 }

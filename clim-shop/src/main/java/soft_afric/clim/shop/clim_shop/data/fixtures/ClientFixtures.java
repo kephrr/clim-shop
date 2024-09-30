@@ -10,7 +10,7 @@ import soft_afric.clim.shop.clim_shop.data.entities.Client;
 import soft_afric.clim.shop.clim_shop.data.repositories.ClientRepository;
 import soft_afric.clim.shop.clim_shop.security.services.SecurityService;
 
-@Component
+//@Component
 @Order(5)
 @RequiredArgsConstructor
 public class ClientFixtures implements CommandLineRunner {
@@ -31,7 +31,7 @@ public class ClientFixtures implements CommandLineRunner {
                             .ville(i%2==0?"Dakar":"Saint-Louis")
                             .build()
             );
-            client.setIsActived(i%2==0);
+            client.setIsActived(true);
             client.setPassword(passwordEncoder.encode("passer"));
             client.setLogin(client.getNomComplet());
             clientRepository.save(client);

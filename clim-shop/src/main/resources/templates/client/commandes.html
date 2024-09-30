@@ -21,8 +21,9 @@
             </div>
             <p th:text="'Montant total : '+${c.montant}">Montant total : 650.000</p>
             <p th:text="'Mode de paiement : '+${c.modePaiement}">Mode de paiement : 0range Money</p>
-            <a th:href="@{client/annuler}">
-                <button th:disabled="${c.etatCommande}=='Terminer'">
+
+            <a th:if="${c.etatCommande=='Terminer'}">
+                <button class="disabled">
                     Annuler
                 </button>
             </a>
@@ -59,6 +60,9 @@
             padding: 7.5px 15px;
             border-radius: 10px;
             border: none;
+        }
+        .disabled:hover{
+            cursor: not-allowed;
         }
     </style>
 </div>

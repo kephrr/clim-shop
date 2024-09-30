@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Component
+//@Component
 @Order(6)
 @RequiredArgsConstructor
 public class CommandeFixtures implements CommandLineRunner {
@@ -28,7 +28,7 @@ public class CommandeFixtures implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         for (int i=0;i<16;i++){
-            Client client = clientRepository.getReferenceById(3L);
+            Client client = clientRepository.getReferenceById(i%3==0?3L:4L);
             Commande commande = new Commande();
             commande.setClient(client);
 
