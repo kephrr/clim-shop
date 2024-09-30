@@ -15,7 +15,7 @@ import soft_afric.clim.shop.clim_shop.web.controllers.PanierController;
 import soft_afric.clim.shop.clim_shop.web.dto.request.ClimPanierDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
-import soft_afric.clim.shop.clim_shop.web.dto.response.ClientResponseDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.ClientDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.ClimDto;
 
 import java.util.ArrayList;
@@ -90,7 +90,7 @@ public class PanierControllerImpl implements PanierController {
         return  new PanierRequestDto(
                 new ArrayList<>(),
                 0.0,
-                ClientResponseDto.toDto(clientService.findByUsername(currentUserName)),
+                ClientDto.toDto(clientService.findByUsername(currentUserName)),
                 0,
                 0
         );

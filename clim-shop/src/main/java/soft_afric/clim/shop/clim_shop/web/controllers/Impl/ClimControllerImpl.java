@@ -21,7 +21,7 @@ import soft_afric.clim.shop.clim_shop.web.dto.request.FilterDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.CategorieDto;
-import soft_afric.clim.shop.clim_shop.web.dto.response.ClientResponseDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.ClientDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.ClimDto;
 import soft_afric.clim.shop.clim_shop.web.dto.response.MarqueDto;
 
@@ -107,7 +107,7 @@ public class ClimControllerImpl implements ClimController {
         return  new PanierRequestDto(
                 new ArrayList<>(),
                 0.0,
-                ClientResponseDto.toDto(clientService.findByUsername(currentUserName)),
+                ClientDto.toDto(clientService.findByUsername(currentUserName)),
                 0,
                 0
         );

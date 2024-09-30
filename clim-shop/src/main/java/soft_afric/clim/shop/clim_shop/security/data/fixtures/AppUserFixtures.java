@@ -8,7 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import soft_afric.clim.shop.clim_shop.security.services.SecurityService;
 
-//@Component
+@Component
 @Order(4)
 @RequiredArgsConstructor
 public class AppUserFixtures implements CommandLineRunner {

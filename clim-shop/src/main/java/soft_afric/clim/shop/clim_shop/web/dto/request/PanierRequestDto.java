@@ -1,7 +1,7 @@
 package soft_afric.clim.shop.clim_shop.web.dto.request;
 
 import lombok.*;
-import soft_afric.clim.shop.clim_shop.web.dto.response.ClientResponseDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.ClientDto;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class PanierRequestDto {
     private List<ClimPanierDto> articles;
     private Double total = 0.0;
-    private ClientResponseDto client;
+    private ClientDto client;
     private int modePaiement;
     private int nbre=0;
     public void addClimToPanier(ClimPanierDto article){

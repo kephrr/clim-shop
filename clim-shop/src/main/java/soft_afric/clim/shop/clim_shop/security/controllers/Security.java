@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public interface Security {
     @GetMapping("/login")
-     String login(@AuthenticationPrincipal UserDetails user);
+    String login(@AuthenticationPrincipal UserDetails user);
 }

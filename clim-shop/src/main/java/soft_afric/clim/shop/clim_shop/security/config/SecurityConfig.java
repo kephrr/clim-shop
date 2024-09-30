@@ -28,38 +28,26 @@ public class SecurityConfig {
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
         return  daoAuthenticationProvider;
     }
-
     //Autorisation
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-       return http.csrf(AbstractHttpConfigurer::disable)//csrf->csrf.disable()
+       return http.csrf(AbstractHttpConfigurer::disable) //csrf->csrf.disable()
+               .logout(logout -> logout
+                       .logoutUrl("/logout")
+                       .logoutSuccessUrl("/login?logout")
+                       .invalidateHttpSession(true)
+                       .deleteCookies("JSESSIONID")
+               )
                .formLogin(form->form
                        .loginPage("/login")
                        .permitAll()
                ).authorizeHttpRequests(auth->auth
-                       .requestMatchers("/api/**").permitAll()
+                       .requestMatchers( "/signup","/signup/**").permitAll()
+                       .requestMatchers("/logout").permitAll()
                        .requestMatchers("/admin/**").hasAnyAuthority("Admin")
                        .requestMatchers("/client/**").hasAnyAuthority("Client")
                        .anyRequest().authenticated())
+
                .build();
     }
-    /*
-    1.20.1
-    ça c'est dans le cas où l'on veut changer le forumulaire de connexion par défaut
-    il faut créer un dossier securiti dans ressources où on aura les vues de la
-    sécurité, créer un controller qui va se charger de nous affiche la page correspondante, 44:14 avant dernier cour
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-       return http.csrf(csrf->csrf.disable())
-               .formLogin(form -> form
-                       .loginPage("/login")
-                       .permitAll()
-               )
-               .build();
-
-
-    }*/
-
-
-
-
 }

@@ -12,7 +12,7 @@ import soft_afric.clim.shop.clim_shop.data.repositories.CategorieRepository;
 import soft_afric.clim.shop.clim_shop.data.repositories.ClimRepository;
 import soft_afric.clim.shop.clim_shop.data.repositories.MarqueRepository;
 
-//@Component
+@Component
 @Order(0)
 @RequiredArgsConstructor
 public class ClimFixtures implements CommandLineRunner {

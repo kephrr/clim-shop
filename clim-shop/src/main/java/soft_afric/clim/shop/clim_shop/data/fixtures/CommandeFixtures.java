@@ -9,6 +9,7 @@ import soft_afric.clim.shop.clim_shop.data.entities.Client;
 import soft_afric.clim.shop.clim_shop.data.entities.Commande;
 import soft_afric.clim.shop.clim_shop.data.entities.LigneCommande;
 import soft_afric.clim.shop.clim_shop.data.enums.EtatCommande;
+import soft_afric.clim.shop.clim_shop.data.enums.ModePaiement;
 import soft_afric.clim.shop.clim_shop.data.repositories.*;
 
 import java.text.SimpleDateFormat;
@@ -16,25 +17,34 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Component
+@Component
 @Order(6)
 @RequiredArgsConstructor
 public class CommandeFixtures implements CommandLineRunner {
-    private final CommandeRepository repository;
+    private final CommandeRepository commandeRepository;
     private  final ClimRepository climRepository;
     private  final LigneCommandeRepository ligneCommandeRepository;
     private  final ClientRepository clientRepository;
     @Override
     public void run(String... args) throws Exception {
         for (int i=0;i<16;i++){
-            Client client = clientRepository.getReferenceById(i%2==0?(long)1:(long)2);
+            Client client = clientRepository.getReferenceById(3L);
             Commande commande = new Commande();
-            commande.setEtatCommande(i%2==0? EtatCommande.Encour: EtatCommande.Terminer);
             commande.setClient(client);
-            //commande.setAdresse(client.getAdresse());
-            int montant = 0;
-            List<LigneCommande> liste = new ArrayList<>();
 
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
+            String dateString = formatter.format(date);
+            Date parsedDate = formatter.parse(dateString);
+
+            commande.setEtatCommande(i%2==0? EtatCommande.Encour: EtatCommande.Terminer);
+            commande.setDateCommmande(parsedDate);
+            commande.setIsActived(true);
+            commande.setModePaiement(ModePaiement.values()[i%3==0?1:i%2==0?0:1]);
+            int montant = 0;
+            commande.setMontant(montant);
+            commande.setClient(client);
+            commandeRepository.save(commande);
             for (int j=1;j<5;j++){
                 LigneCommande ligneCommande = new LigneCommande();
                 ligneCommande.setQuantite(2*i+1);
@@ -43,20 +53,12 @@ public class CommandeFixtures implements CommandLineRunner {
                 montant+=ligneCommande.getMontant();
                 ligneCommande.setClim(climRepository.getReferenceById((long)j));
                 ligneCommande.setCommande(commande);
-                liste.add(ligneCommande);
-            }
 
-            commande.setMontant(montant);
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = new Date();
-            String dateString = formatter.format(date);
-            Date parsedDate = formatter.parse(dateString);
-            commande.setDateCommmande(parsedDate);
-            commande.setIsActived(true);
-            commande.setLigneCommandes(liste);
-            client.addCommande(commande);
-            clientRepository.save(client);
-            ligneCommandeRepository.saveAll(liste);
+                ligneCommande.setCommande(commande);
+                ligneCommandeRepository.save(ligneCommande);
+            }
+            //clientRepository.save(client);
+
         }
     }
 }
