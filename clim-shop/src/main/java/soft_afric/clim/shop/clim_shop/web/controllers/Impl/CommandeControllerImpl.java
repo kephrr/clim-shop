@@ -11,12 +11,16 @@ import soft_afric.clim.shop.clim_shop.data.entities.Client;
 import soft_afric.clim.shop.clim_shop.data.entities.Commande;
 import soft_afric.clim.shop.clim_shop.data.entities.LigneCommande;
 import soft_afric.clim.shop.clim_shop.data.enums.EtatCommande;
+import soft_afric.clim.shop.clim_shop.data.enums.ModePaiement;
 import soft_afric.clim.shop.clim_shop.services.ClientService;
 import soft_afric.clim.shop.clim_shop.services.ClimService;
 import soft_afric.clim.shop.clim_shop.services.CommandeService;
+import soft_afric.clim.shop.clim_shop.services.LigneCommandeService;
 import soft_afric.clim.shop.clim_shop.web.controllers.CommandeController;
 import soft_afric.clim.shop.clim_shop.web.dto.request.ClimPanierDto;
 import soft_afric.clim.shop.clim_shop.web.dto.request.PanierRequestDto;
+import soft_afric.clim.shop.clim_shop.web.dto.request.RechercheDto;
+import soft_afric.clim.shop.clim_shop.web.dto.response.CommandeDto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +35,7 @@ public class CommandeControllerImpl implements CommandeController {
     private final CommandeService commandeService;
     private final ClientService clientService;
     private final ClimService climService;
+    private final LigneCommandeService ligneCommandeService;
     @Override
     public String Commander(Model model, PanierRequestDto panier) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -40,7 +45,7 @@ public class CommandeControllerImpl implements CommandeController {
         Commande commande = new Commande();
         commande.setEtatCommande(EtatCommande.Facturer);
         commande.setClient(client);
-
+        commande.setModePaiement(ModePaiement.values()[panier.getModePaiement()]);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String dateString = formatter.format(date);
@@ -53,24 +58,41 @@ public class CommandeControllerImpl implements CommandeController {
         commande.setDateCommmande(parsedDate);
 
         List<LigneCommande> lignes = new ArrayList<>();
+        int montant = 0;
         for(ClimPanierDto ligne : panier.getArticles()){
-            lignes.add(
-                    LigneCommande.builder()
+            LigneCommande l = LigneCommande.builder()
                             .clim(climService.show(ligne.getId()).orElseThrow(()->new RuntimeException("Clim"+ligne.getId()+" not found in the service")))
                             .prix(ligne.getPrix())
                             .quantite(ligne.getQuantite())
                             .montant(ligne.getMontant())
-                            .build()
-            );
+                            .build();
+            montant += l.getMontant();
+            l.setCommande(commande);
+            lignes.add(l);
         }
-        commande.setLigneCommandes(lignes);
+        commande.setMontant(montant);
         commandeService.save(commande);
+        for (LigneCommande l : lignes) {
+            ligneCommandeService.save(l);
+        }
+
         model.addAttribute("commande", panier.toString());
         return "redirect:client/commandes";
     }
 
     @Override
     public String Commandes(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        Client client = clientService.findByUsername(currentUserName);
+        List<Commande> commandesClient = client.getCommandes();
+        List<CommandeDto> commandes = commandesClient.stream().map(CommandeDto::toDto).toList();
+        model.addAttribute("commandes", commandes);
+        setSearchBarDto(model);
         return "client/commandes";
+    }
+
+    public void setSearchBarDto(Model model){
+        model.addAttribute("search", new RechercheDto());
     }
 }

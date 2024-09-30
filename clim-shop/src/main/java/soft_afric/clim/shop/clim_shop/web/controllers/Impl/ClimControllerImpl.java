@@ -53,7 +53,7 @@ public class ClimControllerImpl implements ClimController {
     public String detailsPage(Model model, Long id) {
         Clim clim = climService.show(id).orElse(null);
         if(clim==null){
-            return "redirect:home";
+            return "redirect:/home";
         }
         ClimDto climDetails = ClimDto.toDetailsDto(clim);
         ClimPanierDto climPanierDto = ClimPanierDto.toDto(climDetails);
@@ -108,6 +108,7 @@ public class ClimControllerImpl implements ClimController {
                 new ArrayList<>(),
                 0.0,
                 ClientResponseDto.toDto(clientService.findByUsername(currentUserName)),
+                0,
                 0
         );
     }

@@ -45,7 +45,7 @@ public class PanierControllerImpl implements PanierController {
                 return "redirect:details/"+article.getId();
             }
         }
-        return "redirect:panier";
+        return panier(model, panier);
     }
 
     @Override
@@ -91,6 +91,7 @@ public class PanierControllerImpl implements PanierController {
                 new ArrayList<>(),
                 0.0,
                 ClientResponseDto.toDto(clientService.findByUsername(currentUserName)),
+                0,
                 0
         );
     }

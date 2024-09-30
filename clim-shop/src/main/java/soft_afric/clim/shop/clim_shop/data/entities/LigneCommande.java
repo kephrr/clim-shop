@@ -21,4 +21,8 @@ public class LigneCommande extends AbstractEntity{
     private Clim clim;
     @ManyToOne
     private Commande commande;
+    @Override
+    public String  toString(){
+        return quantite+ " * "+ clim.getLibelle() +" ("+prix+")"+" Total : "+montant;
+    }
 }

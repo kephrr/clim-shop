@@ -5,29 +5,7 @@
       layout:decorate="template"
 >
 <div layout:fragment="contentForView" class="template-content">
-<div class="commandes" >
-    <h1>Mes commandes</h1>
-        <div th:each="c:${commandes}" class="commande">
-            <p th:text="'Date : '+${c.date}"> 09/03/2005</p>
-            <p th:text="'Adresse : '+${c.adresse}">Adresse : Sicap Baobab</p>
-            <p th:text="'Statut : '+${c.etatCommande}">Statut : Facturer</p>
-            <p>
-                <strong>
-                    Articles
-                </strong>
-            </p>
-            <div class="ligne" th:each="l:${c.ligneCommandes}">
-                <p th:text="${l}" >1x Clim de ous 20000</p>
-            </div>
-            <p th:text="'Montant total : '+${c.montant}">Montant total : 650.000</p>
-            <p th:text="'Mode de paiement : '+${c.modePaiement}">Mode de paiement : 0range Money</p>
-            <a th:href="@{client/annuler}">
-                <button th:disabled="${c.etatCommande}=='Terminer'">
-                    Annuler
-                </button>
-            </a>
-        </div>
-</div>
+    <h1>Voici mon compte : HelloWorld</h1>
     <style>
         .commandes{
             display: flex;

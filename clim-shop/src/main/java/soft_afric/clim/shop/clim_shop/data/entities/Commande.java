@@ -28,8 +28,4 @@ public class Commande extends AbstractEntity{
     private  int montant;
     @OneToMany(mappedBy = "commande")
     private List<LigneCommande> ligneCommandes;
-
-    public void addLigneCommande(LigneCommande ligneCommande) {
-        ligneCommandes.add(ligneCommande);
-    }
 }

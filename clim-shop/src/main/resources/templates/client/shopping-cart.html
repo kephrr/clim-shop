@@ -65,6 +65,11 @@
                     <p th:text="${panier.total}"> 300000 <span>FCFA</span></p>
                 </div>
                 <h3>Nous acceptons</h3>
+                <select th:field="*{panier.modePaiement}" name="modePaiement" id="modPaiement">
+                    <option value="0">Liquide</option>
+                    <option value="1">Orange Money</option>
+                    <option value="2">Wave</option>
+                </select>
                 <div class="pay-mode">
                     <img th:src="@{/img/paiement-par-carte-de-credit.png}" alt="">
                     <img th:src="@{/img/orange-money.jpg}" alt="">

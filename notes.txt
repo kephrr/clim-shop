@@ -1,28 +1,10 @@
-Projet clim shop
+Lundi : Modifier ses infos, se déconnecter, s'enregistrer
+Mardi : Template Admin
+Mercredi : CRUD clims
+Jeudi : RD clients et RU commandes
+Vendredi : responsive
+Samedi : UI/UX
 
-Partie client :
-
-- Lister les produits
-- Filtrer par catégories
-- Filtrer par budget
-- Filtrer par marque
-
-
-Partie admin : 
-
-- Lister les produits
-- Filtrer par catégories
-- Filtrer par budget
-- Filtrer par marque
-- Ajouter
-- Supprimer
-
-// Model
-
-Client
-  - Commandes
-  - Panier
-
-
-Aujourd'hui : Créer un panier, ajouter au panier (avec qte), valider un panier, ajouter la sécurité (seulement quand il faut payer)
-
+Lundi : Refaire les fixtures
+Mardi : Ajouter les infos clients et tester
+Mercredi : Déploiement
