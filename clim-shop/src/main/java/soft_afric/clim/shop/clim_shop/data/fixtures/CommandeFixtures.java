@@ -27,8 +27,8 @@ public class CommandeFixtures implements CommandLineRunner {
     private  final ClientRepository clientRepository;
     @Override
     public void run(String... args) throws Exception {
-        for (int i=0;i<16;i++){
-            Client client = clientRepository.getReferenceById(i%3==0?3L:4L);
+        for (int i=0;i<4;i++){
+            Client client = clientRepository.getReferenceById(4L);
             Commande commande = new Commande();
             commande.setClient(client);
 
@@ -42,8 +42,9 @@ public class CommandeFixtures implements CommandLineRunner {
             commande.setIsActived(true);
             commande.setModePaiement(ModePaiement.values()[i%3==0?1:i%2==0?0:1]);
             int montant = 0;
-            commande.setMontant(montant);
+
             commande.setClient(client);
+
             commandeRepository.save(commande);
             for (int j=1;j<5;j++){
                 LigneCommande ligneCommande = new LigneCommande();
@@ -57,6 +58,9 @@ public class CommandeFixtures implements CommandLineRunner {
                 ligneCommande.setCommande(commande);
                 ligneCommandeRepository.save(ligneCommande);
             }
+            commande.setMontant(montant);
+
+            commandeRepository.save(commande);
             //clientRepository.save(client);
 
         }

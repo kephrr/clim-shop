@@ -25,6 +25,7 @@ import soft_afric.clim.shop.clim_shop.web.dto.response.CommandeDto;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -86,8 +87,10 @@ public class CommandeControllerImpl implements CommandeController {
         String currentUserName = authentication.getName();
         Client client = clientService.findByUsername(currentUserName);
         List<Commande> commandesClient = client.getCommandes();
-        List<CommandeDto> commandes = commandesClient.stream().map(CommandeDto::toDto).toList();
+        List<CommandeDto> commandes = new ArrayList<>(commandesClient.stream().map(CommandeDto::toDto).toList());
+        // Collections.reverse(commandes);
         model.addAttribute("commandes", commandes);
+        model.addAttribute("msg", "Voici vos commandes !!");
         setSearchBarDto(model);
         return "client/commandes";
     }

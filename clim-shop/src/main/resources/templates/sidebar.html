@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../static/css/admin/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sideBar">
+            <img src="../static/img/private.png" alt="Utilisateur">
+            <ul class="sideOptions">
+                <li class="sideOp">
+                    <a href="">
+                        <img src="../static/img/client.png" alt="" srcset="">
+                        Clients
+                    </a>
+                </li>
+                <li class="sideOp">
+                    <a href="">
+                        <img src="../static/img/panier-dachat-rapide.png" alt="" srcset="">
+                        Commandes
+                    </a>
+                </li>
+                <li class="sideOp">
+                    <a href="">
+                        <img src="../static/img/climatiseur.png" alt="" srcset="">
+                        Clims
+                    </a>
+                </li>
+            </ul>
+            <a href="">
+                <button>Déconnexion</button>
+            </a>        
+        </div>
+        <div class="rightSide">
+            <div class="rightContent">
+                <div class="items" >
+                    <h1>Toutes les commandes</h1>
+                    <div class="item">
+                        <p> 09/03/2005</p>
+                        <p>Adresse : Sicap Baobab</p>
+                        <p>Statut : Facturer</p>
+                        <p><strong>Articles</strong></p>
+                        <div class="ligne">
+                            <p>1x Clim de ous 20000</p>
+                        </div>
+                        <p>Montant total : 650.000</p>
+                        <p>Mode de paiement : 0range Money</p>
+                        <div class="buttons">
+                            <a>
+                                <button class="">Annuler</button>
+                            </a>
+                            <a>
+                                <button class="" id="success">Valider</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form action="">
+                    <h1>Ajouter une commande</h1>
+                    <div class="form-row step1">
+                        <input required type="text" placeholder="Nom">
+                    </div>
+                    <div class="form-row">
+                        <input required type="prenom" placeholder="Prenom">
+                    </div>
+                    <div class="form-row">
+                        <input required type="email" placeholder="Adresse e-mail">
+                    </div>
+                    <div class="form-row">
+                        <select name="" id="">
+                            <option value="null">Selectionner une option</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input required type="number" placeholder="Numéro de téléphone">
+                    </div>
+                    <button type="submit">Sauvegarder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

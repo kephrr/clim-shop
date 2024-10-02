@@ -8,7 +8,6 @@
         @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
         html{
             --blue : var(#055AFE);
             --blue-clear: var(#57C4E7);
@@ -31,20 +30,38 @@
         }
         .msg{
             font-style: italic;
-            color:dodgerblue;
+            color: #2E2D2D;
+            font-size: 18px;
         }
         .error{
             color:red;
         }
         h1{
+            font-size: 54px;
             line-height: 0;
             color:#2E2D2D;
+        }
+        .pageAcceuil button{
+            padding: .5rem 1rem;
+            margin: .5rem 0;
+            border: solid 1px #055AFE;
+            background-color: white;
+            color: #055AFE;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 5px;
+        }
+        .pageAcceuil button:hover{
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1 >Erreur 404 - Page non trouvée</h1>
-    <p class="msg error" th:text="${errorMessage}" ></p>
-    <a onclick="history.back()">Page d'acceuil</a>
+    <h1 >Page non trouvée</h1>
+    <p class="msg">
+        Oups! Il semble que la page que vous demandez n'existe pas (ou plus).
+    </p>
+    <form class="pageAcceuil" th:action="@{/client/home}" method="get">
+        <button type="submit">Acceuil</button></form>
 </body>
 </html>

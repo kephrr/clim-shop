@@ -20,8 +20,8 @@
                             <p>Categorie : <span th:text="${climDetails.categorie}"></span></p>
                             <p th:text="'Prix : '+${climDetails.prix}"> <span>FCFA</span></p>
                             <p th:text="'Prix (promotion incluse) : '+${climDetails.prixFinal}"> <span>FCFA</span></p>
-                            <p th:text="'Surface de refroidissement : '+${climDetails.surface}"><span>M²</span></p>
-                            <p th:text="'Capacité de refroidissement : '+${climDetails.capacite}"> <span>BTU/H</span></p>
+                            <p th:text="'Surface de refroidissement : '+${climDetails.surface}+' M²'"><span>M²</span></p>
+                            <p th:text="'Capacité de refroidissement : '+${climDetails.capacite}+' BTU/H'"> <span>BTU/H</span></p>
                             <p >Marque : <span th:text="${climDetails.marque}">LG</span></p>
                             <p>Etat : <span th:text="${climDetails.etat}"></span></p>
                         </div>

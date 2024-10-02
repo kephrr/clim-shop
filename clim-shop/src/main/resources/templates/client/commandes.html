@@ -7,6 +7,13 @@
 <div layout:fragment="contentForView" class="template-content">
 <div class="commandes" >
     <h1>Mes commandes</h1>
+    <style>
+        .cmd-msg{
+            font-style: italic;
+            color: green;
+        }
+    </style>
+        <small th:text="${msg}" class="cmd-msg"></small>
         <div th:each="c:${commandes}" class="commande">
             <p th:text="'Date : '+${c.date}"> 09/03/2005</p>
             <p th:text="'Adresse : '+${c.adresse}">Adresse : Sicap Baobab</p>
