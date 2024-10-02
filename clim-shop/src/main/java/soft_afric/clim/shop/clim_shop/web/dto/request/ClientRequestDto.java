@@ -14,8 +14,8 @@ import soft_afric.clim.shop.clim_shop.web.dto.response.ClientDto;
 @Builder
 public class ClientRequestDto {
     private  Long id;
-    private String nomComplet;
-    private String password;
+    private  String nomComplet;
+    private  String password;
     private  String tel;
     private  String quartier;
     private  String ville;

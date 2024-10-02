@@ -29,7 +29,7 @@ public class ClimServiceImpl implements ClimService {
 
     @Override
     public List<Clim> findAll() {
-        return climRepository.findAll();
+        return climRepository.findAllByIsActivedTrue();
     }
 
     @Override

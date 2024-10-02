@@ -27,4 +27,6 @@ public interface ClimRepository extends JpaRepository<Clim, Long> {
             "AND (:keyword IS NULL OR c.libelle LIKE %:keyword%) ")
     List<Clim> findAllBySearchedKEyword(
             @Param("keyword") String keyword);
+
+    List<Clim> findAllByIsActivedTrue();
 }
