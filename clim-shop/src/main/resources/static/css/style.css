@@ -436,4 +436,139 @@ body #card-details p span {
   font-weight: 600;
 }
 
+/* Responsive */
+/* PC 1024px */
+@media screen and (max-width: 1024px) {
+  body .template-content .big-title{
+    height: 30vh;
+  }
+
+  body .template-content .big-title .contain {
+    width: 70vw;
+  }
+/* Section des call to action */
+  body .template-content .section {
+    padding: 15px 0;
+  }
+  body .template-content .section .call-to-action {
+    width: 90vw;
+  }
+  body .template-content .section .call-to-action .item {
+    width: 25vw;
+  }
+  body .template-content .section .call-to-action .item img {
+    height: 70px;
+  }
+  body .template-content .section .call-to-action .item .item-text {
+  }
+  body .template-content .section .call-to-action .item .item-text .call-title {
+    font-size: 16px;
+  }
+  body .template-content .section .call-to-action .separate-bar {
+    width: 1px;
+    height: 90px;
+  }
+
+  body footer {
+    height: auto;
+    margin-top: 5vh;
+  }
+}
+
+/* Tablette 1024px */
+@media screen and (max-width: 798px) {
+  /* Navbar */
+
+  body .navbar {
+    height: 6vh;
+  }
+  body .navbar .nav-item input {
+    height: 25px;
+    width: 40vw;
+  }
+
+  /* Hero banner */
+
+  body .template-content .big-title{
+    height: 30vh;
+  }
+  body .template-content .big-title .contain {
+    width: 90vw;
+  }
+  body .template-content .big-title .contain p{
+    margin: 1rem;
+  }
+  body .template-content .big-title .contain .sub-title{
+    font-size: 16px;
+  }
+
+  /* Section des call to action
+    A faire plus tard
+  */
+
+  body .template-content .section .call-to-action {
+    width: 95vw;
+  }
+  body .template-content .section .call-to-action .item {
+    width: 28vw;
+  }
+  body .template-content .section .call-to-action .item img {
+    height: 55px;
+  }
+  body .template-content .section .call-to-action .item .item-text {
+    line-height: 1rem;
+    font-size: 12px;
+  }
+  body .template-content .section .call-to-action .item .item-text .call-title {
+    font-size: 14px;
+  }
+  body .template-content .section .call-to-action .separate-bar {
+    width: 1px;
+    height: 90px;
+  }
+
+  body footer {
+    height: auto;
+    margin-top: 5vh;
+  }
+}
 /*# sourceMappingURL=style.css.map */
+
+/* Responsive */
+/* Telephone 1024px */
+@media screen and (max-width: 425px) {
+  body .template-content .big-title{
+    height: 30vh;
+  }
+
+  body .template-content .big-title .contain {
+    width: 70vw;
+  }
+  /* Section des call to action */
+  body .template-content .section {
+    padding: 15px 0;
+  }
+  body .template-content .section .call-to-action {
+    width: 90vw;
+  }
+  body .template-content .section .call-to-action .item {
+    width: 25vw;
+  }
+  body .template-content .section .call-to-action .item img {
+    height: 70px;
+  }
+  body .template-content .section .call-to-action .item .item-text {
+  }
+  body .template-content .section .call-to-action .item .item-text .call-title {
+    font-size: 16px;
+  }
+  body .template-content .section .call-to-action .separate-bar {
+    width: 1px;
+    height: 90px;
+  }
+
+  body footer {
+    height: auto;
+    margin-top: 5vh;
+  }
+}

@@ -72,3 +72,27 @@ input[type="submit"]{
 input[type="submit"]:hover{
     cursor: pointer;
 }
+
+@media screen and (max-width: 425px) {
+
+    body{
+        font-size: 36px;
+    }
+    form{
+        width: 80vw;
+        height: auto;
+        padding: 0;
+    }
+    input{
+        font-size: 3rem;
+    }
+    input::placeholder{
+        font-size: 3rem;
+    }
+
+    input[type="submit"]{
+        padding: .5rem 1rem;
+        margin: .5rem 0;
+        font-size: 2.9rem;
+    }
+}
