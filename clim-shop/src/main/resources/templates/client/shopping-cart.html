@@ -17,7 +17,7 @@
 >
 <div layout:fragment="contentForView" class="template-content">
     <main>
-        <aside class="cart">
+        <div class="aside cart">
             <div class="banner">
                 <!--
                 <input onclick="selectAll()" type="button" name="all" id="all" value="X">
@@ -42,11 +42,11 @@
                     </div>
                 </div>
             </div>
-        </aside>
-        <form class="payment"
+        </div>
+        <form class="aside payment"
               th:action="@{/commander}"
               th:method="post">
-            <div class="summary">
+            <div class="summary" id="summary">
                 <h2>Résumé de la commande</h2>
                 <div class="cmd-item">
                     <p>Client :</p>

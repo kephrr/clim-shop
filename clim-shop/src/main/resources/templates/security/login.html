@@ -82,6 +82,40 @@
             cursor: pointer;
         }
 
+        @media screen and (max-width: 768px) {
+
+            body{
+                font-size: 36px;
+            }
+            form{
+                width: 80vw;
+                height: auto;
+                padding: 10px 0;
+            }
+            form h2{
+                font-size: 1.2rem;
+            }
+
+            form p{
+                font-size: 0.6rem;
+            }
+            input[type="text"], input[type="password"]{
+                width: auto;
+                height: auto;
+                font-size: 1rem;
+                padding: .5rem 1rem;
+            }
+            input[type="text"]::placeholder, input[type="password"]::placeholder{
+                font-size: 1rem;
+            }
+
+            input[type="submit"]{
+                padding: .5rem 1rem;
+                margin: .5rem 0;
+                font-size: 1.1rem;
+            }
+        }
+
         @media screen and (max-width: 425px) {
 
             body{

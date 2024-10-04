@@ -6,6 +6,27 @@
 >
 <div layout:fragment="contentForView" class="template-content account">
     <style>
+        @media screen and (max-width:  1024px){
+            .account-content, #updateUserForm{
+                width: 80vw;
+            }
+
+            #updateUserForm .field{
+                width: 100%;
+            }
+
+            .adresse .field{
+                width: 30%;
+            }
+            .adresse{
+                width: 80vw;
+                display: flex;
+                justify-content: space-between;
+            }
+            .adresse .field{
+                width: 30%;
+            }
+        }
         .account{
             display: flex;
             justify-content: center;
@@ -77,8 +98,7 @@
             margin-top: 30px;
         }
         .button-form{
-            width: 12vw;
-            height: 7vh;
+            padding: 10px 20px;
             font-size: 1rem;
             color: white;
             background-color: darkgrey;

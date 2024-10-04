@@ -6,7 +6,7 @@
 >
 <div layout:fragment="contentForView" class="template-content">
     <main>
-        <aside class="cart">
+        <div class="aside cart">
             <div class="banner">
                 <h2>Details du produit</h2>
             </div>
@@ -28,8 +28,8 @@
                     </div>
                 </div>
             </div>
-        </aside>
-        <form class="payment"
+        </div>
+        <form class="aside payment"
               th:method="post"
               th:action="@{/client/panier/add}"
               th:object="${climPanierDto}">
