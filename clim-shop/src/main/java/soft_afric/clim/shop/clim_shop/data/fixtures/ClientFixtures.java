@@ -22,7 +22,7 @@ public class ClientFixtures implements CommandLineRunner {
     public void run(String... args) throws Exception {
         for (int i = 0; i <2 ; i++) {
             Client client = new Client();
-            client.setNomComplet(i%2==0?"Kephren NZE":"Abdoulaye SY");
+            client.setNomComplet(i%2==0?"Utilisateur":"Abdoulaye SY");
             client.setTel(i%2==0?"776693020":"789990001");
             client.setAdresse(
                     Adresse.builder()
@@ -36,7 +36,7 @@ public class ClientFixtures implements CommandLineRunner {
             client.setLogin(client.getNomComplet());
             clientRepository.save(client);
             System.out.println("voici : "+client.getLogin());
-            service.addRoleToUser(i%2==0?"Kephren NZE":"Abdoulaye SY","Client");
+            service.addRoleToUser(i%2==0?"Utilisateur":"Abdoulaye SY","Client");
         }
     }
 }
